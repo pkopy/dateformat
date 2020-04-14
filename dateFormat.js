@@ -1,6 +1,7 @@
 
 // "YYYY/MM/DD"
 //
+module.exports  =
 class  MyDate{
     constructor(date){
         this.date = date ? date: new Date(Date.now());
@@ -71,7 +72,8 @@ class  MyDate{
 
 
 
-const zz = new MyDate()
-console.log(zz.addZero(7))
-console.log(zz.dateFormat(null, null, ' o-o '))
-zz.addDay(5)
+
+// const zz = new MyDate()
+// console.log(zz.addZero(7))
+// console.log(zz.dateFormat(null, null, ' o-o '))
+// zz.addDay(5)
