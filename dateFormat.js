@@ -2,8 +2,11 @@
 //
 module.exports = {
 
-
     MyDate: class MyDate {
+        /**
+         *
+         * @param {Date} date
+         */
         constructor(date) {
             this.date = date ? date : new Date(Date.now());
             console.log('init date: ', this.date)
@@ -13,6 +16,13 @@ module.exports = {
             return number < 10 ? '0' + number.toString() : number.toString();
         }
 
+        /**
+         *
+         * @param {Date} date
+         * @param {string} format
+         * @param {string} separator
+         * @returns {string}
+         */
         dateFormat(date, format, separator) {
             if (!date) date = this.date;
             let dateNumber = 0;
@@ -55,20 +65,27 @@ module.exports = {
                 }
 
                 console.log("test:", rr.substring(0, rr.length - separator.length))
+                return rr.substring(0, rr.length - separator.lengt)
             } else {
                 for (let e in result) {
                     rr += result[e] + separator
                 }
                 console.log(rr.substring(0, rr.length - separator.length))
+                return rr.substring(0, rr.length - separator.length)
             }
         }
 
+        /**
+         *
+         * @param {number} num
+         * @param {string} separator
+         */
         addDay(num, separator) {
             if (!separator) separator = '/'
             let x = Date.parse(this.date) + (num * 24 * 60 * 60 * 1000)
             this.date = new Date(x)
-            console.log()
-            this.dateFormat(new Date(x), 'ymd', separator)
+            // console.log()
+            return this.dateFormat(new Date(x), 'ymd', separator)
         }
     }
 
