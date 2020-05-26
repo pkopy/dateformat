@@ -1,15 +1,15 @@
-// "YYYY/MM/DD"
-//
+//This module formats date
 module.exports = {
 
     MyDate: class MyDate {
         /**
-         *
-         * @param {Date} date
+         * MyDate([date])
+         * @constructor
+         * @param {Date} [date]
          */
         constructor(date) {
             this.date = date ? date : new Date(Date.now());
-            console.log('init date: ', this.date)
+
         }
 
         addZero(number) {
@@ -17,10 +17,10 @@ module.exports = {
         }
 
         /**
-         *
-         * @param {Date} date
-         * @param {string} format
-         * @param {string} separator
+         * dateFormat([date][, format][,separator])
+         * @param {Date} [date]
+         * @param {string} [format]
+         * @param {string} [separator]
          * @returns {string}
          */
         dateFormat(date, format, separator) {
@@ -40,16 +40,12 @@ module.exports = {
             if (!separator) separator = '/'
 
             if (date instanceof Date) {
-                // for (let i of Object.keys(date)) {
-                //     console.log(i)
-                // }
-                // console.log(date.constructor)
                 result.D = this.addZero(date.getDate());
                 day = date.getDay();
                 result.M = this.addZero(date.getMonth() + 1);
                 result.Y = this.addZero(date.getFullYear());
 
-                console.log(date)
+                // console.log(date)
             } else {
                 console.log(typeof date)
             }
@@ -58,27 +54,28 @@ module.exports = {
 
 
                 const form = format.toUpperCase().split('');
-                console.log(form)
+                // console.log(form)
 
                 for (let e of form) {
                     rr += result[e] + separator
                 }
 
-                console.log("test:", rr.substring(0, rr.length - separator.length))
-                return rr.substring(0, rr.length - separator.lengt)
+                // console.log("test:", rr.substring(0, rr.length - separator.length))
+                return rr.substring(0, rr.length - separator.length)
             } else {
                 for (let e in result) {
                     rr += result[e] + separator
                 }
-                console.log(rr.substring(0, rr.length - separator.length))
+                // console.log(rr.substring(0, rr.length - separator.length))
                 return rr.substring(0, rr.length - separator.length)
             }
         }
 
         /**
          *
-         * @param {number} num
-         * @param {string} separator
+         * @param {number} num - a positive or negative number
+         * @param {string} [separator]
+         * @returns {string}
          */
         addDay(num, separator) {
             if (!separator) separator = '/'
@@ -92,7 +89,3 @@ module.exports = {
 }
 
 
-// const zz = new MyDate()
-// console.log(zz.addZero(7))
-// console.log(zz.dateFormat(null, null, ' o-o '))
-// zz.addDay(5)
