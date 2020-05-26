@@ -1,0 +1,23 @@
+{
+  "name": "@pkopy/dateformat",
+  "version": "1.0.0",
+  "description": "This module formats date",
+  "main": "dateFormat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkopy/dateformat.git"
+  },
+  "keywords": [
+    "format",
+    "date"
+  ],
+  "author": "pkopy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pkopy/dateformat/issues"
+  },
+  "homepage": "https://github.com/pkopy/dateformat#readme"
+}
