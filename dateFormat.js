@@ -67,7 +67,7 @@ module.exports = {
                     rr += result[e] + separator
                 }
                 // console.log(rr.substring(0, rr.length - separator.length))
-                return rr.substring(0, rr.length - separator.length)
+                return rr.substring(0, rr.length - separator.length);
             }
         }
 
@@ -75,14 +75,16 @@ module.exports = {
          *
          * @param {number} num - a positive or negative number
          * @param {string} [separator]
+         * @param {string} [format]
          * @returns {string}
          */
-        addDay(num, separator) {
-            if (!separator) separator = '/'
-            let x = Date.parse(this.date) + (num * 24 * 60 * 60 * 1000)
-            this.date = new Date(x)
+        addDay(num, format, separator) {
+            if (!separator) separator = '/';
+            if (!num) num = 0;
+            let x = Date.parse(this.date) + (num * 24 * 60 * 60 * 1000);
+            this.date = new Date(x);
             // console.log()
-            return this.dateFormat(new Date(x), 'ymd', separator)
+            return this.dateFormat(new Date(x), format, separator);
         }
     }
 
